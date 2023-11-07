@@ -55,8 +55,8 @@
                         </div>
                     </div>
                    <div class="card" style="width: 250px; margin-left: 15px; margin-bottom: 15px;">
-                        <img class="card-img-top" src="jerry.jpg" alt="Card image" style="padding: 40px; object-fit: over; height: 20rem;  width: 16rem; margin-top: -4rem;">
-                        <div class="card-body" style="padding-top: -20px;">
+                        <img class="card-img-top" src="jerry.jpg" alt="Card image">
+                        <div class="card-body" style="padding-top: 0px;">
                           <h4 class="card-title">Mouse Jerry</h4>
                           <p class="card-text">Mouse yang disukai kucing</p>
                           <p class="card-text">Rp 30.000,00</p>
@@ -66,6 +66,39 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#searchItem").click(function (e) {
+            e.preventDefault();
+            var keyword = $("#keyword").val().toLowerCase();
+            $(".card").each(function () {
+                var cardTitle = $(this).find(".card-title").text().toLowerCase();
+                if (cardTitle.includes(keyword)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+ });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    var cartCount = 0;
+
+    $(".btn.btn-primary").click(function (e) {
+      e.preventDefault();
+      cartCount++; 
+      if (cartCount > 9) {
+        $("#cartItemCount").text("9+");
+      } else {
+        $("#cartItemCount").text(cartCount);
+      }
+    });
+});
+</script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
